@@ -1,0 +1,26 @@
+<app-navbar-classique></app-navbar-classique>
+<div class="container" >
+      <h4>Page d'authentification d'un locataire</h4>
+    <form #f="ngForm" (ngSubmit)="authentification(f)">
+
+            <label for="email">Email :</label>
+            <input #inputEmail="ngModel" type="email" id="email" ngModel name="email" class="form-control" required>
+      <div *ngIf="inputEmail.invalid && inputEmail.touched" class="alert alert-danger">
+<p  *ngIf="inputEmail.errors?.['required']">Veuillez remplir le champ email</p>
+      </div>
+
+            <label for="password">Mot de passe:</label>
+            <input #inputMdp="ngModel" type="password" id="mail" ngModel name="password" minlength="8" required class="form-control"  >
+            <div *ngIf="inputMdp.invalid && inputMdp.touched" class="alert alert-danger">
+                <p  *ngIf="inputMdp.errors?.['required']">Veuillez remplir le champ mot de passe</p>
+                <p  *ngIf="inputMdp.errors?.['minlength']">Votre mot de passe doit contenir 8 caractères</p>
+
+                      </div>
+        <button class="btn btn-primary" [disabled]="f.invalid">Authentification</button>
+       <div *ngIf="erreur" class="alert alert-danger">
+        {{erreur}}
+       </div>
+    </form>
+
+</div>
+

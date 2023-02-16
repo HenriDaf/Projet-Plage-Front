@@ -1,0 +1,53 @@
+<app-navbar-classique></app-navbar-classique>
+<div class="container">
+  <h2>Inscription</h2>
+  <form #formLogin="ngForm" (ngSubmit)="verificationValidations(formLogin)">
+
+    <div class=" mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input ngModel name="nom" type="text" class="form-control" id="nom" #nom="ngModel">
+      <span class="erreur" id="erreurnom" *ngIf="erreurnom">{{erreurnom}}</span>
+    </div>
+    <div class="mb-3">
+      <label for="prenom" class="form-label">Prénom</label>
+      <input ngModel name="prenom" type="text" class="form-control" id="prenom">
+      <span class="erreur" id="erreurprenom" *ngIf="erreurprenom">{{erreurprenom}}</span>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Courriel</label>
+      <input ngModel name="email" type="email" class="form-control" id="email">
+      <span class="erreur" id="erreuremail" *ngIf="erreuremail">{{erreuremail}}</span>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Mot de passe <span class="avert-mp">* 8 caractères minimum
+        </span></label>
+      <input ngModel name="password" type="password" class="form-control" id="password">
+      <span class="erreur" id="erreurpassword" *ngIf="erreurpassword">{{erreurpassword}}</span>
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Lien de parenté avec le concessionnaire: </label>
+      </div>
+      <select ngModel name="lienDeParente" class="custom-select" id="inputGroupSelect01">
+        <option *ngFor="let lien of listeLienDeParente" value="{{lien.nom}}">{{lien.nom}}</option>
+      </select>
+    </div>
+    <p><span class="erreur" id="erreurlienparente" *ngIf="erreurlienparente">{{erreurlienparente}}</span></p>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Choisir votre pays: </label>
+      </div>
+      <select ngModel name='pays' class="custom-select" id="inputGroupSelect01">
+        <option *ngFor="let pays of listePays" value="{{pays.nom}}">{{pays.nom}}</option>
+      </select>
+    </div>
+    <p>
+      <span class="erreur" id="erreurpays" *ngIf="erreurpays">{{erreurpays}}</span>
+    </p>
+    <button type="submit" class="btn btn-primary m-2">Valider votre inscription</button>
+
+  </form>
+  <p><span class="erreur" id="erreurpays" *ngIf="errormessage">{{errormessage}}</span></p>
+
+  <button (click)="redirectionAccueil()" class="btn btn-warning m-2">Retour à la connexion</button>
+</div>

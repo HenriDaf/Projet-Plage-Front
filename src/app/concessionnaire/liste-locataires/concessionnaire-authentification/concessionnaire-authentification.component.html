@@ -1,0 +1,29 @@
+<app-navbar-concessionnaire></app-navbar-concessionnaire>
+
+<div class="container" >
+    <h4>Page d'authentification du concessionnaire</h4>
+    <form #f="ngForm" (ngSubmit)="authentification(f)">
+
+            <label for="email">Email :</label>
+            <input #inputEmail="ngModel" type="email" id="email" ngModel name="email" class="form-control"pattern="^([A-Za-z0-9-])+(.[A-Za-z0-9-]+)*@orsys.fr$" required>
+      <div *ngIf="inputEmail.invalid && inputEmail.touched" class="alert alert-danger">
+<p  *ngIf="inputEmail.errors?.['required']">Veuillez remplir le champ email</p>
+<p  *ngIf="inputEmail.errors?.['pattern']">Votre adresse mail doit terminer par @orsys.fr</p>
+      </div>
+
+            <label for="password">Mot de passe:</label>
+            <input #inputMdp="ngModel" type="password" id="password" ngModel name="password" minlength="8" required class="form-control"  >
+            <div *ngIf="inputMdp.invalid && inputMdp.touched" class="alert alert-danger">
+                <p  *ngIf="inputMdp.errors?.['required']">Veuillez remplir le champ mot de passe</p>
+                <p  *ngIf="inputMdp.errors?.['minlength']">Votre mot de passe doit contenir 8 caractères</p>
+               
+
+                      </div>
+                      <div *ngIf="error" class="alert alert-danger">
+                        {{error}}
+                    </div>
+        <button class="btn btn-primary" [disabled]="f.invalid">Authentification</button>
+
+    </form>
+
+</div>

@@ -1,0 +1,32 @@
+<app-navbar-concessionnaire></app-navbar-concessionnaire>
+<h2>Liste de toutes les réservations</h2>
+<ng-container *ngIf="listeLocations">
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Date de début</th>
+        <th scope="col">Date de fin</th>
+        <th scope="col">Montant à régler</th>
+        <th scope="col">Remarques</th>
+        <th scope="col">Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let location of listeLocations">
+        <td>{{location.dateHeureDebut | date}}</td>
+        <td>{{location.dateHeureFin | date}}</td>
+        <td>{{location.montantAReglerEnEuros}}</td>
+        <td>{{location.remarques}}</td>
+        <td *ngIf="location.statut.nom == 'confirmée'" class="bg-success text-light">{{location.statut.nom}}</td>
+        <td *ngIf="location.statut.nom == 'à traiter'" class="bg-warning">{{location.statut.nom}}</td>
+        <td *ngIf="location.statut.nom == 'refusée'" class="bg-danger">{{location.statut.nom}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</ng-container>
+<ng-container *ngIf="! listeLocations">
+  <h2>Il n'y a aucune location en cours</h2>
+</ng-container>
+

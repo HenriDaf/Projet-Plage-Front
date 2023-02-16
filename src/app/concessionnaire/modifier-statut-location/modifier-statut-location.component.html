@@ -1,0 +1,15 @@
+<app-navbar-concessionnaire></app-navbar-concessionnaire>
+
+<h2>Modifier le statut de la réservation</h2>
+<form #formStatut="ngForm" (ngSubmit)="changerStatut(formStatut)">
+  <label for="reservation" >La réservation avec l'ID : {{ l.id }}</label><br>
+  <input ngModel required email type="hidden" [(ngModel)]="l.id" id="identifiant"
+ name="id">
+  <label for="reservation">Son statut est : {{ l.statut.nom }}</label><br>
+  <label for="reservation">Modifier : </label><br>
+  <select #statut="ngModel" ngModel name='statut' class="custom-select" id="inputGroupSelect01" required>
+    <option *ngFor="let statut of listeStatuts" value="{{statut.id}}">{{statut.nom}}</option>
+  </select><br>
+  <!--<p *ngIf="!statut.touched"  class="alert alert-danger"> Veuillez sélectionner un statut</p>-->
+  <button class="btn btn-primary m-2" >Valider la modification</button>
+</form>

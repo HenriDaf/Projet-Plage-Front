@@ -1,0 +1,40 @@
+<app-navbar-classique></app-navbar-classique>
+
+<div class="container">
+
+  <div *ngIf="listeReservations">
+
+    <table class="table m-2">
+      <thead>
+        <tr class="table-active">
+          <th>ID</th>
+          <th>Début de la réservation</th>
+          <th>Fin de la réservation</th>
+          <th>Montant à régler</th>
+          <th>Remarque</th>
+          <th>Statut</th>
+
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr class="table-active" *ngFor="let reservation of listeReservations">
+          <td>{{reservation.id}}</td>
+          <td>{{reservation.dateHeureDebut |date :'medium'}}</td>
+          <td>{{reservation.dateHeureFin |date :'medium'}}</td>
+          <td>{{reservation.montantAReglerEnEuros | currency:'EUR':true}}</td>
+          <td>{{reservation.remarque}}</td>
+          <td *ngIf="reservation.statut.nom == 'confirmée'" class="bg-success text-light">{{reservation.statut.nom}}
+          </td>
+          <td *ngIf="reservation.statut.nom == 'à traiter'" class="bg-warning">{{reservation.statut.nom}}</td>
+          <td *ngIf="reservation.statut.nom == 'refusée'" class="bg-danger">{{reservation.statut.nom}}</td>
+
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="!listeReservations">
+    <h4>Vous n'avez aucune location !</h4>
+  </div>

@@ -1,0 +1,30 @@
+<ul class="nav nav-tabs bg-primary">
+  <li class="nav-item">
+    <a class="nav-link text-warning" routerLink="/concessionnaire" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact : true}" *ngIf="!localService.concessionnaireConnecte()">Accueil</a>
+  </li>
+
+  <li class="nav-item" *ngIf="! localService.concessionnaireConnecte()">
+    <a class="nav-link text-warning" routerLink="/authentificationConcessionnaire" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact : true}" >Authentification
+      Concessionnaire</a>
+  </li>
+  <li class="nav-item" *ngIf="localService.concessionnaireConnecte()">
+    <a class="nav-link text-warning" routerLink="/concessionnaire/liste-location/traitement" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact : true}" >Réservation à
+      traiter</a>
+  </li>
+  <li class="nav-item" *ngIf="localService.concessionnaireConnecte()">
+    <a class="nav-link text-warning" routerLink="/concessionnaire/liste-reservation" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact : true}" >Voir toutes les
+      réservations</a>
+  </li>
+  <li class="nav-item" *ngIf="localService.concessionnaireConnecte()">
+    <a class="nav-link text-warning" routerLink="/listeLocataire" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact : true}" >Liste des locataires</a>
+  </li>
+  <li class="nav-item hover-deconex" *ngIf="localService.concessionnaireConnecte()">
+    <a class="nav-link text-warning" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}"
+      (click)="deconnexionConcessionnaire()">Deconnexion</a>
+  </li>
+</ul>

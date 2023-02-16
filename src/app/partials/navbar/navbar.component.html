@@ -1,0 +1,31 @@
+<ul class="nav nav-tabs bg-dark">
+  <li class="nav-item">
+    <a class="nav-link text-warning" routerLink="/" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact : true}">Accueil</a>
+  </li>
+  <li class="nav-item" *ngIf="!localService.locataireConnecte()">
+    <a class="nav-link text-warning" routerLink="/inscription" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact : true}">Inscription locataire</a>
+  </li>
+  <li class="nav-item" *ngIf="!localService.locataireConnecte()">
+    <a class="nav-link text-warning" routerLink="/authentificationLocataire" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact : true}" >Authentification locataire</a>
+  </li>
+  <li class="nav-item" *ngIf="localService.locataireConnecte()">
+    <a class="nav-link text-warning" routerLink="/reservationsLocataire" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact : true}" >Reservations locataire</a>
+  </li>
+  <li class="nav-item" *ngIf="localService.locataireConnecte()">
+    <a class="nav-link text-warning" routerLink="/listeParasolsLibres" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact : true}" >Liste parasols libres</a>
+  </li>
+  <li class="nav-item"  *ngIf=" !localService.locataireConnecte()">
+    <a class="nav-link text-warning" routerLink="/concessionnaire">Etes-vous un gestionnaire ?</a>
+  </li>
+  <li class="nav-item btn-deconnex" *ngIf="localService.locataireConnecte()">
+    <a class="nav-link text-warning" routerLinkActive="active" (click)="deconnexionLocataire()">Deconnexion</a>
+
+  </li>
+
+
+</ul>

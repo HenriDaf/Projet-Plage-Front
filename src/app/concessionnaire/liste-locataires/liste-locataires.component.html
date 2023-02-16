@@ -1,0 +1,50 @@
+<app-navbar-concessionnaire></app-navbar-concessionnaire>
+<div class="container">
+
+
+
+  <table class="table table-dark m-2">
+    <thead>
+      <tr class="table-active">
+        <th>id</th>
+        <th>prenom</th>
+        <th>nom</th>
+        <th>email</th>
+        <th>lien de parenté</th>
+        <th>pays</th>
+        <th>Suppression locataire</th>
+
+
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr class="table-active" *ngFor="let locataire of listeLocataires">
+        <td>{{locataire.id}}</td>
+        <td>{{locataire.prenom}}</td>
+        <td>{{locataire.nom}}</td>
+        <td>{{locataire.email}}</td>
+        <td>{{locataire.lienDeParente['nom']}}</td>
+        <td>{{locataire.pays['nom']}}</td>
+
+
+        <ng-container *ngFor="let location of locataire.listeLocationDto">
+          {{location['statut'].nom}} }<br>
+        </ng-container>
+
+        <td><button class="btn btn-danger" (click)="supprimerLocataire(locataire.id)">Supprimer Locataire </button></td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+
+
+  <!--
+
+ <ng-container *ngIf="listeLocataires.length==0">
+    <h4>Liste de locataires vide</h4>
+
+  </ng-container>
+-->

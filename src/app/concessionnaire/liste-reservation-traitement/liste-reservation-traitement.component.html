@@ -1,0 +1,28 @@
+<app-navbar-concessionnaire></app-navbar-concessionnaire>
+<div class="container">
+  <h2 class="text-center m-2">Liste des réservations à traîter</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Date de début</th>
+        <th scope="col">Date de fin</th>
+        <th scope="col">Montant à régler</th>
+        <th scope="col">Remarques</th>
+        <th scope="col">Statut</th>
+        <th scope="col">Modifier</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let location of listeLocations">
+        <td>{{location.dateHeureDebut | date}}</td>
+        <td>{{location.dateHeureFin | date}}</td>
+        <td>{{location.montantAReglerEnEuros}}</td>
+        <td>{{location.remarques}}</td>
+        <td>{{location.statut.nom}}</td>
+        <!-- <td><button (click)="newStatut(location)" class="btn btn-success">Modifier le statut</button></td> -->
+        <td><a [routerLink]="['/modifier/statut']" class="btn btn-success" [state]="location">Modifier le statut</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
