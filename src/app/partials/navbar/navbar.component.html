@@ -7,7 +7,7 @@
     <a class="nav-link text-warning" routerLink="/inscription" routerLinkActive="active"
       [routerLinkActiveOptions]="{exact : true}">Inscription locataire</a>
   </li>
-  <li class="nav-item" *ngIf="!localService.locataireConnecte()">
+  <li class="nav-item" *ngIf="!localService.locataireConnecte() ">
     <a class="nav-link text-warning" routerLink="/authentificationLocataire" routerLinkActive="active"
       [routerLinkActiveOptions]="{exact : true}" >Authentification locataire</a>
   </li>

@@ -14,3 +14,13 @@ describe('LocalService', () => {
     expect(service).toBeTruthy();
   });
 });
+
+it('it should return true if there is a locataire in the sessionStorage ', () =>{
+  const service = new LocalService();
+  sessionStorage.setItem('tokenLocataire','blabla');
+  expect(service.locataireConnecte()).toBeTruthy();
+})
+it('it should return false if there is not a locataire in the sessionStorage ', () =>{
+  const service = new LocalService();
+ expect(service.locataireConnecte()).toBeFalsy();
+})

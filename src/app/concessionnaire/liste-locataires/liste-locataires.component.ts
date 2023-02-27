@@ -31,11 +31,13 @@ export class ListeLocatairesComponent {
   }
 
   supprimerLocataire(id: number) {
+    
     if (confirm('Voulez vous vraiment supprimer le compte de ce locataire')) {
       this.supprimerLocataireService.supprimerLocataire(id).subscribe({
         next: (result) => {
+          console.log(result);
           alert('Utilisateur supprimé');
-          location.reload();
+         location.reload();
           //console.log(result);
         },
         error: (err) => {
