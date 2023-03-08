@@ -16,7 +16,7 @@ export class LoginConcessionaireGuard implements CanActivate {
 
   //  let token= sessionStorage.getItem('tokenConcessionnaire');
    let token= sessionStorage.getItem('token');
-    console.log(token);
+    console.log("guard C: "+token);
    /* if(token)
 (this.localService.isTokenExpired(token));*/
     if(token && this.localService.isTokenExpired(token)===false){
@@ -25,7 +25,7 @@ export class LoginConcessionaireGuard implements CanActivate {
       
       this.localService.clearData();
       this.router.navigateByUrl("");
-      alert("Session expirée");
+      alert("Session expirée, veuillez-vous reconnecter");
       return false;
     }
     else{

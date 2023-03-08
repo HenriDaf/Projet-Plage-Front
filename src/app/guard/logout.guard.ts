@@ -6,11 +6,15 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { LocalService } from '../services/local.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LogoutGuard implements CanActivate {
+  constructor(private localSevice:LocalService){
+
+  }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -25,7 +29,10 @@ export class LogoutGuard implements CanActivate {
 
     //console.log(token);
 
-    if (token || token2) return false;
-    else return true;
+    if (this.localSevice.concessionnaireConnecte()==true|| token2) return false;
+    else{
+      this.localSevice.clearData();
+      return true;
+    } 
   }
 }

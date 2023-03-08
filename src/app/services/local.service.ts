@@ -45,7 +45,7 @@ public clearData(){
    let valid=false;
     if(token){
      valid=!this.isTokenExpired(token);
-     console.log("dans concessionnaireConnecte() "+valid)
+    // console.log("dans concessionnaireConnecte() "+valid)
     }
    // console.log(valid);
   return valid;
@@ -71,8 +71,14 @@ return (Math.floor((new Date).getTime()/1000))>=expired
   }*/
 
   isTokenExpired(token:string){
+    //console.log("token "+token)
     //console.log("dans isTokenExpired() "+this.helper.decodeToken(token))
     //console.log("dans isTokenExpired() "+this.helper.getTokenExpirationDate(token))
+
+    if(this.helper.getTokenExpirationDate(token)===null){
+   
+      return true;
+    }
    // console.log("dans isTokenExpired() "+this.helper.isTokenExpired(token))
    return this.helper.isTokenExpired(token);
   }
