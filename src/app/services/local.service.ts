@@ -44,7 +44,8 @@ public clearData(){
     let token = sessionStorage.getItem('token');
    let valid=false;
     if(token){
-     valid=!this.isTokenExpired(token);
+     valid=(!this.isTokenExpired(token) && this.isConcessionnaire(token));
+     console.log(valid)
     // console.log("dans concessionnaireConnecte() "+valid)
     }
    // console.log(valid);
@@ -69,6 +70,38 @@ console.log((Math.floor((new Date).getTime()/1000))>=expired)
 
 return (Math.floor((new Date).getTime()/1000))>=expired
   }*/
+
+  isConcessionnaire(token:string){
+
+    let answer=false;
+let authorities:[]=(this.helper.decodeToken(token).ROLE);
+
+/*if(authorities){
+  for(let value of authorities){
+    console.log(value['authority'])
+    if(value['authority']=='CONCESSIONNAIRE'){
+      answer=true;
+   
+    }
+  }    
+
+
+ 
+   
+ 
+}*/
+
+if(authorities){
+  authorities.forEach(function(value){
+    if(value['authority']=='CONCESSIONNAIRE'){
+      answer=true;
+    }
+  })
+}
+console.log(answer);
+
+return answer;
+  }
 
   isTokenExpired(token:string){
     //console.log("token "+token)

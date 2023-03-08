@@ -25,6 +25,7 @@ export class ListeLocatairesComponent {
         //console.log(this.listeLocataires);
       },
       error: (err) => {
+        console.log(err)
         alert('Erreur lors de la récupération des clients');
       },
     });

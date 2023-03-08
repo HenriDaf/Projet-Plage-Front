@@ -19,9 +19,9 @@ export class LoginConcessionaireGuard implements CanActivate {
     console.log("guard C: "+token);
    /* if(token)
 (this.localService.isTokenExpired(token));*/
-    if(token && this.localService.isTokenExpired(token)===false){
+    if(token && this.localService.isTokenExpired(token)===false && this.localService.isConcessionnaire(token)===true){
       return true;
-    } else if(token && this.localService.isTokenExpired(token)===true){
+    } else if(token && this.localService.isTokenExpired(token)===true && this.localService.isConcessionnaire(token)===true){
       
       this.localService.clearData();
       this.router.navigateByUrl("");
