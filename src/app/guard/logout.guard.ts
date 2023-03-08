@@ -19,7 +19,8 @@ export class LogoutGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    let token = sessionStorage.getItem('tokenConcessionnaire');
+    //let token = sessionStorage.getItem('tokenConcessionnaire');
+    let token = sessionStorage.getItem('token');
     let token2 = sessionStorage.getItem('tokenLocataire');
 
     //console.log(token);

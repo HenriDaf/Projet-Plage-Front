@@ -2,7 +2,7 @@
 
 <div class="container" >
     <h4>Page d'authentification du concessionnaire</h4>
-    <form #f="ngForm" (ngSubmit)="authentification(f)">
+    <form #f="ngForm" (ngSubmit)="auth(f)">
 
             <label for="email">Email :</label>
             <input #inputEmail="ngModel" type="email" id="email" ngModel name="email" class="form-control"pattern="^([A-Za-z0-9-])+(.[A-Za-z0-9-]+)*@orsys.fr$" required>

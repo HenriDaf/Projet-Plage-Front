@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class AfficherListeUtilisateursService {
 
 
-url="http://localhost:8080/";
+url="http://localhost:8080/api/";
 
   constructor(private httpClient:HttpClient) { }
 

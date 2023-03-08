@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { auto } from '@popperjs/core';
 import * as CryptoJS from 'crypto-js';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,11 @@ export class LocalService {
 id="";
 
   constructor() { }
+ helper = new JwtHelperService();
 
-
+public saveToken(token:string):void{
+  sessionStorage.setItem('token', token);
+}
 
 public saveData(key:string, value:string){
   sessionStorage.setItem(key,this.encrypt(value));
@@ -35,13 +40,40 @@ public clearData(){
 
 
   concessionnaireConnecte(){
-    let token = sessionStorage.getItem('tokenConcessionnaire');
-    if(token) return true;
-    else return false;
+   // let token = sessionStorage.getItem('tokenConcessionnaire');
+    let token = sessionStorage.getItem('token');
+   let valid=false;
+    if(token){
+     valid=!this.isTokenExpired(token);
+     console.log("dans concessionnaireConnecte() "+valid)
+    }
+   // console.log(valid);
+  return valid;
   }
   locataireConnecte(){
     let token = sessionStorage.getItem('tokenLocataire');
     if(token) return true;
     else return false;
+  }
+
+  getToken():string | null{
+return sessionStorage.getItem('token');
+  }
+
+/*  isTokenValid(token:String):boolean{
+/*const expired=(JSON.parse(atob(token.split('.')[1]))).exp;
+/*console.log(expired);
+console.log(Math.floor((new Date).getTime()/1000))
+console.log((Math.floor((new Date).getTime()/1000))>=expired)
+//console.log(!(Math.floor((new Date).getTime()/1000))>=expired);
+
+return (Math.floor((new Date).getTime()/1000))>=expired
+  }*/
+
+  isTokenExpired(token:string){
+    //console.log("dans isTokenExpired() "+this.helper.decodeToken(token))
+    //console.log("dans isTokenExpired() "+this.helper.getTokenExpirationDate(token))
+   // console.log("dans isTokenExpired() "+this.helper.isTokenExpired(token))
+   return this.helper.isTokenExpired(token);
   }
 }

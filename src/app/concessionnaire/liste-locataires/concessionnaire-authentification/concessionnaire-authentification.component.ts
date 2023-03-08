@@ -24,7 +24,7 @@ this.authenService.authentifier(datas.value).subscribe({
     //console.log(response);
 
     alert("Connexion effective");
-    this.localService.saveData('tokenConcessionnaire','jk123');
+   // this.localService.saveData('tokenConcessionnaire','jk123');
   this.router.navigateByUrl("/listeLocataire")
   // console.log(sessionStorage.getItem('idConcessionnaire'));
   }, error:(err)=>{
@@ -35,5 +35,21 @@ this.authenService.authentifier(datas.value).subscribe({
 })
 
 }
+auth(datas:NgForm){
+  this.authenService.auth(datas.value).subscribe({
+    next:(response:any)=>{
+      alert("Connexion effective");
+  //  sessionStorage.setItem('tokenConcessionnaire',response.token);
+  console.log(response.token);
+this.localService.saveToken(response.token);
+  
+    }, error:(err)=>{
+      this.error=err.error;
+      console.log(err);
+    
+      datas.reset();
+    }
+  })
+  }
 
 }
