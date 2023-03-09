@@ -46,12 +46,12 @@ console.log(token);
 
 if(token !==null){
   let cloneRequest= request.clone({
-    headers:new HttpHeaders().set('Authorization', 'bearer '+token)
+    headers:new HttpHeaders().set('Authorization', 'Bearer '+token)
   })
   console.log(request)
   console.log(cloneRequest);
-  return next.handle(cloneRequest);
- /* return next.handle(cloneRequest).pipe(
+  //return next.handle(cloneRequest);
+  return next.handle(cloneRequest).pipe(
     catchError(error=>{
       console.log(error)
 
@@ -60,7 +60,7 @@ if(token !==null){
       }
       return throwError(() => new Error('session expired'))
     })
-  );*/
+  );
 }
 
 return next.handle(request);
