@@ -20,7 +20,7 @@
       réservations</a>
   </li>
   <li class="nav-item" *ngIf="localService.concessionnaireConnecte()">
-    <a class="nav-link text-warning" routerLink="/listeLocataire" routerLinkActive="active"
+    <a class="nav-link text-warning" routerLink="/concessionnaire/listeLocataire" routerLinkActive="active"
       [routerLinkActiveOptions]="{exact : true}" >Liste des locataires</a>
   </li>
   <li class="nav-item hover-deconex" *ngIf="localService.concessionnaireConnecte()">
