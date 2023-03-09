@@ -45,7 +45,7 @@ public clearData(){
    let valid=false;
     if(token){
      valid=(!this.isTokenExpired(token) && this.isConcessionnaire(token));
-     console.log(valid)
+    
     // console.log("dans concessionnaireConnecte() "+valid)
     }
    // console.log(valid);
@@ -98,7 +98,7 @@ if(authorities){
     }
   })
 }
-console.log(answer);
+
 
 return answer;
   }
