@@ -44,7 +44,7 @@ const myRoutes: Routes = [
     canActivate: [LogoutGuard],
   },
   {
-    path: 'listeLocataire',
+    path: 'concessionnaire/listeLocataire',
     component: ListeLocatairesComponent,
     canActivate: [LoginConcessionaireGuard],
   },
