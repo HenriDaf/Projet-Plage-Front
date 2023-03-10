@@ -40,8 +40,8 @@ auth(datas:NgForm){
     next:(response:any)=>{
       alert("Connexion effective");
   //  sessionStorage.setItem('tokenConcessionnaire',response.token);
-  this.router.navigateByUrl("/concessionnaire/listeLocataire")
-this.localService.saveToken(response.token);
+  this.localService.saveToken(response.token);
+  this.router.navigateByUrl("/concessionnaire/liste-reservation")
   
     }, error:(err)=>{
       this.error=err.error;

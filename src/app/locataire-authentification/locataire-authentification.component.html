@@ -1,7 +1,7 @@
 <app-navbar-classique></app-navbar-classique>
 <div class="container" >
       <h4>Page d'authentification d'un locataire</h4>
-    <form #f="ngForm" (ngSubmit)="authentification(f)">
+    <form #f="ngForm" (ngSubmit)="auth(f)">
 
             <label for="email">Email :</label>
             <input #inputEmail="ngModel" type="email" id="email" ngModel name="email" class="form-control" required>
@@ -17,8 +17,8 @@
 
                       </div>
         <button class="btn btn-primary" [disabled]="f.invalid">Authentification</button>
-       <div *ngIf="erreur" class="alert alert-danger">
-        {{erreur}}
+       <div *ngIf="error" class="alert alert-danger">
+        {{error}}
        </div>
     </form>
 

@@ -52,9 +52,12 @@ public clearData(){
   return valid;
   }
   locataireConnecte(){
-    let token = sessionStorage.getItem('tokenLocataire');
-    if(token) return true;
-    else return false;
+    let token = sessionStorage.getItem('token');
+    let valid=false;
+    if(token){
+valid=(!this.isTokenExpired(token)) && this.isLocataire(token)
+    } 
+    return valid;
   }
 
   getToken():string | null{
@@ -70,6 +73,15 @@ console.log((Math.floor((new Date).getTime()/1000))>=expired)
 
 return (Math.floor((new Date).getTime()/1000))>=expired
   }*/
+
+  getEmail():string{
+    let email: string;
+    let token:any=sessionStorage.getItem("token");
+     email=this.helper.decodeToken(token).sub;
+  console.log(email)
+
+    return email;
+  }
 
   isConcessionnaire(token:string){
 
@@ -102,6 +114,24 @@ if(authorities){
 
 return answer;
   }
+
+  isLocataire(token:string){
+    let answer=false;
+    let authorities:[]=(this.helper.decodeToken(token).ROLE);
+
+    if(authorities){
+      authorities.forEach(function(value){
+        if(value['authority']=='LOCATAIRE'){
+          answer=true;
+        }
+      })
+    }
+    
+    
+    return answer;
+  }
+
+
 
   isTokenExpired(token:string){
     //console.log("token "+token)

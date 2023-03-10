@@ -16,7 +16,7 @@ export class LocataireAuthentificationComponent {
   constructor(private authentificationService:AuthentificationLocataireService, private localService:LocalService, private router:Router){
 
   }
-  erreur:any;
+  error:any;
 
 authentification(datas: any){
 this.authentificationService.authentifier(datas.value).subscribe({
@@ -32,12 +32,28 @@ this.localService.saveData('idLocataire', JSON.stringify(results.id));
 this.router.navigateByUrl("/reservationsLocataire");
 
   }, error:(err)=>{
-    this.erreur=err.error;
+    this.error=err.error;
     datas.reset();
     //console.log(err);
   }
 })
 }
-
+auth(datas:NgForm){
+  this.authentificationService.auth(datas.value).subscribe({
+    next:(response:any)=>{
+      alert("Connexion effective");
+  //  sessionStorage.setItem('tokenConcessionnaire',response.token);
+  console.log(response.token)
+  this.router.navigateByUrl("/reservationsLocataire");
+this.localService.saveToken(response.token);
+  
+    }, error:(err)=>{
+      this.error=err.error;
+      console.log(err);
+    
+      datas.reset();
+    }
+  })
+  }
 
 }
