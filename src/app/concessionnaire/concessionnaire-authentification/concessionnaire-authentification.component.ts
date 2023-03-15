@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ConcessionnaireService } from 'src/app/services/concessionnaire.service';
 import { LocalService } from 'src/app/services/local.service';
-import { AuthentificationConcessionnaireService } from '../../../services/authentification-concessionnaire.service';
 
 @Component({
   selector: 'app-concessionnaire-authentification',
@@ -11,32 +11,17 @@ import { AuthentificationConcessionnaireService } from '../../../services/authen
 })
 export class ConcessionnaireAuthentificationComponent {
 
-constructor(private authenService: AuthentificationConcessionnaireService, private localService: LocalService,
+constructor(private concessionnaireService:ConcessionnaireService, private localService: LocalService,
   private router:Router){
 
 }
 
 error:any;
-authentification(datas:NgForm){
 
-this.authenService.authentifier(datas.value).subscribe({
-  next:(response:any)=>{
-    //console.log(response);
 
-    alert("Connexion effective");
-   // this.localService.saveData('tokenConcessionnaire','jk123');
-  this.router.navigateByUrl("/listeLocataire")
-  // console.log(sessionStorage.getItem('idConcessionnaire'));
-  }, error:(err)=>{
-    this.error=err.error;
-    //console.log(err);
-    datas.reset();
-  }
-})
 
-}
 auth(datas:NgForm){
-  this.authenService.auth(datas.value).subscribe({
+  this.concessionnaireService.auth(datas.value).subscribe({
     next:(response:any)=>{
       alert("Connexion effective");
   //  sessionStorage.setItem('tokenConcessionnaire',response.token);

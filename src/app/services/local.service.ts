@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { auto } from '@popperjs/core';
-import * as CryptoJS from 'crypto-js';
+
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 @Injectable({
@@ -17,13 +16,6 @@ public saveToken(token:string):void{
   sessionStorage.setItem('token', token);
 }
 
-public saveData(key:string, value:string){
-  sessionStorage.setItem(key,this.encrypt(value));
-}
-public getData(key:string){
-  let data= sessionStorage.getItem(key) || "";
-  return this.decrypt(data);
-}
 public removeData(key:string){
   sessionStorage.removeItem(key);
 }
@@ -31,12 +23,6 @@ public clearData(){
   sessionStorage.clear();
 }
 
-  private encrypt(txt:string):string{
-    return CryptoJS.AES.encrypt(txt, this.id).toString();
-  }
-  private decrypt(txt:string):string{
-    return CryptoJS.AES.decrypt(txt, this.id).toString(CryptoJS.enc.Utf8);
-  }
 
 
   concessionnaireConnecte(){

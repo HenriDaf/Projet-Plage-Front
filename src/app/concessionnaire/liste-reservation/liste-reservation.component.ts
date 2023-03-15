@@ -1,8 +1,8 @@
 import { Location } from './../../model/Location';
 import { Statut } from './../../model/Statut';
 import { Router } from '@angular/router';
-import { ListeLocationsAllService } from './../../services/liste-locations-all.service';
 import { Component } from '@angular/core';
+import { ConcessionnaireService } from 'src/app/services/concessionnaire.service';
 
 @Component({
   selector: 'app-liste-reservation',
@@ -14,12 +14,12 @@ export class ListeReservationComponent {
   arrElements: any[] = [];
 
   constructor(
-    private listeLocationAllService: ListeLocationsAllService,
+    private concessionnaireService: ConcessionnaireService,
     private router: Router
   ) {}
 
   getListeReservation() {
-    this.listeLocationAllService
+    this.concessionnaireService
       .recupererListLocation()
       .subscribe((locations) => {
         console.log(locations);

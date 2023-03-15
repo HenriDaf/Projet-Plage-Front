@@ -1,9 +1,9 @@
 import { ModifierStatutLocationComponent } from './../modifier-statut-location/modifier-statut-location.component';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { ListeLocationsStatutsService } from 'src/app/services/liste-locations-statuts.service';
 import { Location } from 'src/app/model/Location';
 import { Statut } from 'src/app/model/Statut';
+import { ConcessionnaireService } from 'src/app/services/concessionnaire.service';
 
 
 @Component({
@@ -16,12 +16,12 @@ export class ListeReservationTraitementComponent {
   arrElements: any[] = [];
 
   constructor(
-    private listeLocationAtraiterService: ListeLocationsStatutsService,
+    private concessionnaireService: ConcessionnaireService,
     private router: Router
   ) {}
 
   getListeReservationAtraiter() {
-    this.listeLocationAtraiterService
+    this.concessionnaireService
       .recupererListLocationATraiter()
       .subscribe((locations) => {
         //console.log(locations);

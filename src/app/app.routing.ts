@@ -3,15 +3,15 @@ import { AccueilconcessionnaireComponent } from './concessionnaire/accueil/accue
 
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
-import { ConcessionnaireAuthentificationComponent } from './concessionnaire/liste-locataires/concessionnaire-authentification/concessionnaire-authentification.component';
+import { ConcessionnaireAuthentificationComponent } from './concessionnaire/concessionnaire-authentification/concessionnaire-authentification.component';
 import { ListeLocatairesComponent } from './concessionnaire/liste-locataires/liste-locataires.component';
 import { LoginConcessionaireGuard } from './guard/login-concessionaire.guard';
 import { LogoutGuard } from './guard/logout.guard';
-import { LocataireAuthentificationComponent } from './locataire-authentification/locataire-authentification.component';
-import { InscriptionComponent } from './inscription/inscription/inscription.component';
+import { LocataireAuthentificationComponent } from './locataire/locataire-authentification/locataire-authentification.component';
+import { InscriptionComponent } from './locataire/inscription/inscription.component';
 import { ListeReservationTraitementComponent } from './concessionnaire/liste-reservation-traitement/liste-reservation-traitement.component';
 import { ListeReservationComponent } from './concessionnaire/liste-reservation/liste-reservation.component';
-import { ListeReservationLocataireComponent } from './liste-reservation-locataire/liste-reservation-locataire.component';
+import { ListeReservationLocataireComponent } from './locataire/liste-reservation-locataire/liste-reservation-locataire.component';
 import { LoginLocataireGuard } from './guard/login-locataire.guard';
 import { AffichageParasolsComponent } from './affichage-parasols/affichage-parasols.component';
 

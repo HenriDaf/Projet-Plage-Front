@@ -1,5 +1,5 @@
-import { LienDeParente } from './../../model/LienDeParente';
-import { LocataireService } from './../../services/locataire.service';
+import { LienDeParente } from '../../model/LienDeParente';
+import { LocataireService } from '../../services/locataire.service';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';

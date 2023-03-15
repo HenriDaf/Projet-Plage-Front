@@ -2,18 +2,31 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Locataire } from '../model/Locataire';
+import { LocalService } from './local.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocataireService {
-  constructor(private client: HttpClient) {}
+  constructor(private httpClient: HttpClient, private localService:LocalService) {}
+
+url="http://localhost:8080/api/";
+
+  auth(datas:any){
+    return this.httpClient.post(this.url+"v1/auth/authentificationLocataire",datas);
+  }
 
   ajouterLocataire(user: Locataire): Observable<Locataire> {
-    return this.client.post<Locataire>(
-      //`http://localhost:8080/creationLocataire`,
-      `http://localhost:8080/api/v1/auth/inscriptionLocataire`,
+    return this.httpClient.post<Locataire>(
+    this.url+`v1/auth/inscriptionLocataire`,
       user
     );
   }
+
+
+  recupererReservations(){
+    return  this.httpClient.get(this.url+"locations/locataireMail/"+this.localService.getEmail());
+  
+    }
+ 
 }

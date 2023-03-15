@@ -1,4 +1,4 @@
-import { LocalService } from './../../../services/local.service';
+import { LocalService } from '../../services/local.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 

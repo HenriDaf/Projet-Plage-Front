@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { LocataireService } from 'src/app/services/locataire.service';
 
-import { RecupererReservationsLocataireService } from '../services/recuperer-reservations-locataire.service';
 
 @Component({
   selector: 'app-liste-reservation-locataire',
@@ -12,11 +12,11 @@ export class ListeReservationLocataireComponent {
 listeReservations:any;
 listeErreur:any;
 
-constructor(private reservationLocataireService:RecupererReservationsLocataireService){
+constructor(private locataireService: LocataireService){
   
 }
   ngOnInit(){
-this.reservationLocataireService.recupererReservations().subscribe({
+this.locataireService.recupererReservations().subscribe({
   next:(results)=>{
 this.listeReservations=results;
 console.log("listeReservations: "+ results)

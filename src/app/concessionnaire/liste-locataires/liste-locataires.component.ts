@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AfficherListeUtilisateursService } from 'src/app/services/afficher-liste-utilisateurs.service';
-import { SupprimerLocataireService } from 'src/app/services/supprimer-locataire.service';
+import { ConcessionnaireService } from 'src/app/services/concessionnaire.service';
 
 @Component({
   selector: 'app-liste-locataires',
@@ -13,13 +12,12 @@ export class ListeLocatairesComponent {
   erreur: any;
 
   constructor(
-    private listeClientService: AfficherListeUtilisateursService,
-    private router: Router,
-    private supprimerLocataireService: SupprimerLocataireService
+    private concessionnaireService: ConcessionnaireService,
+    private router: Router
   ) {}
 
   ngOnInit() {
-    this.listeClientService.recupererLocataire().subscribe({
+    this.concessionnaireService.recupererLocataire().subscribe({
       next: (results) => {
         this.listeLocataires = results;
         //console.log(this.listeLocataires);
@@ -34,7 +32,7 @@ export class ListeLocatairesComponent {
   supprimerLocataire(id: number) {
     
     if (confirm('Voulez vous vraiment supprimer le compte de ce locataire')) {
-      this.supprimerLocataireService.supprimerLocataire(id).subscribe({
+      this.concessionnaireService.supprimerLocataire(id).subscribe({
         next: (result) => {
           console.log(result);
           alert('Utilisateur supprimé');
