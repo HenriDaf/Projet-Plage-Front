@@ -9,7 +9,7 @@ export class SupprimerLocataireService {
   constructor(private httpClient:HttpClient) { }
 
   
-  url="http://localhost:8080"
+  url="http://localhost:8080/api"
   supprimerLocataire(id:number){
     return this.httpClient.delete(this.url+"/supprimerLocataire/"+id);
   }

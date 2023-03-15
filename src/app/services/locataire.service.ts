@@ -11,7 +11,8 @@ export class LocataireService {
 
   ajouterLocataire(user: Locataire): Observable<Locataire> {
     return this.client.post<Locataire>(
-      `http://localhost:8080/creationLocataire`,
+      //`http://localhost:8080/creationLocataire`,
+      `http://localhost:8080/api/v1/auth/inscriptionLocataire`,
       user
     );
   }

@@ -25,11 +25,11 @@ export class LogoutGuard implements CanActivate {
     | UrlTree {
     //let token = sessionStorage.getItem('tokenConcessionnaire');
     let token = sessionStorage.getItem('token');
-    let token2 = sessionStorage.getItem('tokenLocataire');
+    //let token2 = sessionStorage.getItem('tokenLocataire');
 
     //console.log(token);
 
-    if (this.localSevice.concessionnaireConnecte()==true|| token2) return false;
+    if (this.localSevice.concessionnaireConnecte()==true|| this.localSevice.locataireConnecte()==true) return false;
     else{
       this.localSevice.clearData();
       return true;

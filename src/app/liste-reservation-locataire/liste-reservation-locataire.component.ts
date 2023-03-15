@@ -19,6 +19,7 @@ constructor(private reservationLocataireService:RecupererReservationsLocataireSe
 this.reservationLocataireService.recupererReservations().subscribe({
   next:(results)=>{
 this.listeReservations=results;
+console.log("listeReservations: "+ results)
   }, error:(err)=>{
 this.listeErreur=err.error;
   }
