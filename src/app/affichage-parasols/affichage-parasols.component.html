@@ -1,5 +1,22 @@
+<app-navbar-classique></app-navbar-classique>
 <h4>Liste des parasols libres</h4>
-<table>
+<table class="table m-2">
+<thead>
+   <tr class="table-active">
+ <th>File</th>
+ <th>Emplacement</th>>
+   </tr> 
+    
+    </thead>
+<tbody>
+    <ng-container *ngFor="let parasol of listeParasolsLibres" >
 
-
+        <tr class="table-active" >
+            <ng-container *ngIf="parasol.file.id==1"> </ng-container>
+            <td>{{parasol.file.id}}</td>
+            <td>{{parasol.numEmplacement}}</td>
+            </tr>
+    </ng-container>
+  
+</tbody>
 </table>

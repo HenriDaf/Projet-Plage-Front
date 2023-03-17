@@ -24,8 +24,8 @@ url="http://localhost:8080/api/";
   }
 
 
-  recupererReservations(){
-    return  this.httpClient.get(this.url+"locations/locataireMail/"+this.localService.getEmail());
+  recupererReservations():Observable<Location[]>{
+    return  this.httpClient.get<Location[]>(this.url+"locations/locataireMail/"+this.localService.getEmail());
   
     }
  

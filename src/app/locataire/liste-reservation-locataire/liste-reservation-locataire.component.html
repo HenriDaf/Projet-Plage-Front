@@ -2,6 +2,11 @@
 
 <div class="container">
 
+
+  <div *ngIf="!listeReservations">
+    <h4>Vous n'avez aucune locations !</h4>
+  </div>
+
   <div *ngIf="listeReservations">
 
     <table class="table m-2">
@@ -23,7 +28,7 @@
           <td>{{reservation.dateHeureDebut |date :'medium'}}</td>
           <td>{{reservation.dateHeureFin |date :'medium'}}</td>
           <td>{{reservation.montantAReglerEnEuros | currency:'EUR':true}}</td>
-          <td>{{reservation.remarque}}</td>
+          <td>{{reservation.remarques}}</td>
           <td *ngIf="reservation.statut.nom == 'confirmée'" class="bg-success text-light">{{reservation.statut.nom}}
           </td>
           <td *ngIf="reservation.statut.nom == 'à traiter'" class="bg-warning">{{reservation.statut.nom}}</td>
@@ -35,6 +40,7 @@
       </tbody>
     </table>
   </div>
-  <div *ngIf="!listeReservations">
-    <h4>Vous n'avez aucune locations !</h4>
-  </div>
+  
+
+
+</div>
