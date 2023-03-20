@@ -14,7 +14,7 @@ url="http://localhost:8080/api/";
 
 
 auth(datas:any){
-  return this.httpClient.post(this.url+"v1/auth/authentificationConcessionnaire", datas)
+  return this.httpClient.post(this.url+"authentificationConcessionnaire", datas)
 }
 
 recupererLocataire(){

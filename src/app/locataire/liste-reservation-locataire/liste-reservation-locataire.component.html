@@ -3,11 +3,11 @@
 <div class="container">
 
 
-  <div *ngIf="!listeReservations">
+  <div *ngIf="!(listeReservations.length>0)">
     <h4>Vous n'avez aucune locations !</h4>
   </div>
 
-  <div *ngIf="listeReservations">
+  <div *ngIf="listeReservations.length>0">
 
     <table class="table m-2">
       <thead>

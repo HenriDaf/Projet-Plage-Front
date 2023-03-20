@@ -13,12 +13,12 @@ export class LocataireService {
 url="http://localhost:8080/api/";
 
   auth(datas:any){
-    return this.httpClient.post(this.url+"v1/auth/authentificationLocataire",datas);
+    return this.httpClient.post(this.url+"authentificationLocataire",datas);
   }
 
   ajouterLocataire(user: Locataire): Observable<Locataire> {
     return this.httpClient.post<Locataire>(
-    this.url+`v1/auth/inscriptionLocataire`,
+    this.url+"inscriptionLocataire",
       user
     );
   }

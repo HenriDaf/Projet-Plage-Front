@@ -30,7 +30,7 @@ this.listeErreur=err.error;
 })*/
 
 this.locataireService.recupererReservations().subscribe((locations) => {
-  console.log(locations);
+  console.log("locations: "+locations);
   for (let element of locations) {
     this.arrElements = [];
     for (const [key, value] of Object.entries(element)) {
