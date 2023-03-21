@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Identifiant } from '../model/Identifiant.model';
 import { Locataire } from '../model/Locataire';
 import { LocalService } from './local.service';
 
@@ -12,7 +13,7 @@ export class LocataireService {
 
 url="http://localhost:8080/api/";
 
-  auth(datas:any){
+  auth(datas:Identifiant){
     return this.httpClient.post(this.url+"authentificationLocataire",datas);
   }
 

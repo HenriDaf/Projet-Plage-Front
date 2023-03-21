@@ -35,9 +35,9 @@
     <p><span class="erreur" id="erreurlienparente" *ngIf="erreurlienparente">{{erreurlienparente}}</span></p>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">Choisir votre pays: </label>
+        <label class="input-group-text" for="inputGroupSelect02">Choisir votre pays: </label>
       </div>
-      <select ngModel name='pays' class="custom-select" id="inputGroupSelect01">
+      <select ngModel name='pays' class="custom-select" id="inputGroupSelect02">
         <option *ngFor="let pays of listePays" value="{{pays.nom}}">{{pays.nom}}</option>
       </select>
     </div>

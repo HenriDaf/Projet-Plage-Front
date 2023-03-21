@@ -22,6 +22,7 @@ import { ListeReservationTraitementComponent } from './concessionnaire/liste-res
 import { ListeReservationLocataireComponent } from './locataire/liste-reservation-locataire/liste-reservation-locataire.component';
 import { ModifierStatutLocationComponent } from './concessionnaire/modifier-statut-location/modifier-statut-location.component';
 import { AffichageParasolsComponent } from './affichage-parasols/affichage-parasols.component';
+import { AjouterReservationComponent } from './locataire/ajouter-reservation/ajouter-reservation.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { AffichageParasolsComponent } from './affichage-parasols/affichage-paras
     ListeReservationLocataireComponent,
       ModifierStatutLocationComponent,
       AffichageParasolsComponent,
+      AjouterReservationComponent,
 
   ],
   imports: [

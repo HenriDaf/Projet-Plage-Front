@@ -48,6 +48,7 @@ console.log(info);
 
 
     if(info.statut != '' && info.id!=''){
+      console.log("info: "+info);
       this.concessionnaireService.modifierStatut(info).subscribe({
         next:(results)=>{
           alert("modification du statut de la location effective");

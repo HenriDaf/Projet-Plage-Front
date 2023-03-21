@@ -14,6 +14,7 @@ import { ListeReservationComponent } from './concessionnaire/liste-reservation/l
 import { ListeReservationLocataireComponent } from './locataire/liste-reservation-locataire/liste-reservation-locataire.component';
 import { LoginLocataireGuard } from './guard/login-locataire.guard';
 import { AffichageParasolsComponent } from './affichage-parasols/affichage-parasols.component';
+import { AjouterReservationComponent } from './locataire/ajouter-reservation/ajouter-reservation.component';
 
 const myRoutes: Routes = [
   { path: '', component: AccueilComponent },
@@ -62,6 +63,11 @@ const myRoutes: Routes = [
     path: 'modifier/statut',
     component: ModifierStatutLocationComponent,
     canActivate: [LoginConcessionaireGuard],
+  },
+
+  {
+    path:'ajouterReservation',
+    component:AjouterReservationComponent
   },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
